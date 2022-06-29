@@ -1,0 +1,12 @@
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+img {
+    width: 100%;
+}
+
+.carousel-container {
+    width: 80%;
+}
