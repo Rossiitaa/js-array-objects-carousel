@@ -46,7 +46,7 @@ images.forEach((element, i, array) => {
                 <h1 class="text-white">${element.title}</h1>
                 <p class="text-white">${element.description}</p>
             </div> `;
-            
+
     img.classList.add('d-none');
     imgsClass.appendChild(img);
 });
@@ -65,6 +65,10 @@ imgList[activeImg].classList.remove('active');
 imgList[activeImg].classList.add('d-none');
 
 activeImg++;
+    if (activeImg === imgList.length) {
+        activeImg = 0;
+    }
+
 imgList[activeImg].classList.remove('d-none');
 imgList[activeImg].classList.add('active');
 
@@ -78,6 +82,10 @@ imgList[activeImg].classList.remove('active');
 imgList[activeImg].classList.add('d-none');
 
 activeImg--;
+    if (activeImg < 0) {
+        activeImg = imgList.length - 1;
+    }
+    
 imgList[activeImg].classList.remove('d-none');
 imgList[activeImg].classList.add('active');
 }); 
