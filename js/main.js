@@ -28,18 +28,56 @@ const images = [
     },
 ];
 
-let activeImg = 0;
 const imgsClass = document.querySelector('.carousel-image');
-const imgList = imgsClass.children;
 
-images.forEach((element, i) => {
-    const newImg = document.createElement('img');
-    newImg.classList.add('d-none');
-    newImg.setAttribute('src', element.url);
-    imgsClass.append(newImg);
-    if (i === 0) {
-        newImg.classList.remove('d-none');
-    } else {
-        newImg.classList.add('');
-    } 
+images.forEach((element, i, array) => {
+    console.log(`
+    ${element.title}, 
+    ${element.description},
+    ${element.url}
+    `);
+
+    const img = document.createElement('div');
+    img.classList.add('position-relative');
+
+    img.innerHTML =
+    `   <img src="${element.url}" alt="">
+            <div class="text_img position-absolute top-0 end-0 text-end m-4">
+                <h1 class="text-white">${element.title}</h1>
+                <p class="text-white">${element.description}</p>
+            </div> `;
+            
+    img.classList.add('d-none');
+    imgsClass.appendChild(img);
 });
+
+let activeImg = 0;
+const imgList = imgsClass.children;
+imgList[activeImg].classList.remove('d-none');
+
+
+
+/* button */
+const buttonNext = document.querySelector('#next-btn');
+buttonNext.addEventListener('click', function() {
+
+imgList[activeImg].classList.remove('active');
+imgList[activeImg].classList.add('d-none');
+
+activeImg++;
+imgList[activeImg].classList.remove('d-none');
+imgList[activeImg].classList.add('active');
+
+
+});
+
+const buttonPrevious = document.querySelector('#previous-btn');
+buttonPrevious.addEventListener('click', function() {
+
+imgList[activeImg].classList.remove('active');
+imgList[activeImg].classList.add('d-none');
+
+activeImg--;
+imgList[activeImg].classList.remove('d-none');
+imgList[activeImg].classList.add('active');
+}); 

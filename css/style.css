@@ -2,11 +2,17 @@ body {
     background-color: #000;
     color: #fff;
 }
-
 img {
     width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.carousel-container {
+    margin: 0 auto;
 }
 
-.carousel-container {
-    width: 80%;
+.arrow {
+    cursor: pointer;
+    position: relative;
+    bottom: 400px;
 }
