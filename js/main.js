@@ -89,3 +89,8 @@ activeImg--;
 imgList[activeImg].classList.remove('d-none');
 imgList[activeImg].classList.add('active');
 }); 
+
+/* autoplay */
+setInterval(function() {
+    buttonNext.click();
+}, 3000);
