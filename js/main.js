@@ -27,3 +27,19 @@ const images = [
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
 ];
+
+let activeImg = 0;
+const imgsClass = document.querySelector('.carousel-image');
+const imgList = imgsClass.children;
+
+images.forEach((element, i) => {
+    const newImg = document.createElement('img');
+    newImg.classList.add('d-none');
+    newImg.setAttribute('src', element.url);
+    imgsClass.append(newImg);
+    if (i === 0) {
+        newImg.classList.remove('d-none');
+    } else {
+        newImg.classList.add('');
+    } 
+});
