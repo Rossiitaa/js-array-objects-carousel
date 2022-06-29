@@ -38,10 +38,10 @@ images.forEach((element, i, array) => {
     `);
 
     const img = document.createElement('div');
-    img.classList.add('position-relative');
+    img.classList.add('position-relative', 'carousel-image-item');
 
     img.innerHTML =
-    `   <img src="${element.url}" alt="">
+    `   <img class="img-thumbnail" src="${element.url}" alt="">
             <div class="text_img position-absolute top-0 end-0 text-end m-4">
                 <h1 class="text-white">${element.title}</h1>
                 <p class="text-white">${element.description}</p>
@@ -65,7 +65,7 @@ imgList[activeImg].classList.remove('active');
 imgList[activeImg].classList.add('d-none');
 
 activeImg++;
-    if (activeImg === imgList.length) {
+    if (activeImg >= imgList.length) {
         activeImg = 0;
     }
 
@@ -85,7 +85,7 @@ activeImg--;
     if (activeImg < 0) {
         activeImg = imgList.length - 1;
     }
-    
+
 imgList[activeImg].classList.remove('d-none');
 imgList[activeImg].classList.add('active');
 }); 
